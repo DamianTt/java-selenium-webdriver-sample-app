@@ -10,10 +10,10 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class LoginPage {
 
-    private HomePageLocator locators;
+    private LoginLocators locators;
 
     public LoginPage(WebDriver driver) {
-        locators = new HomePageLocator();
+        locators = new LoginLocators();
         PageFactory.initElements(driver, locators);
 
     }

@@ -1,5 +1,7 @@
 package myTest;
 
+import loginPackage.HomePage;
+import loginPackage.LoginPage;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -57,7 +59,7 @@ public class TestLogin {
 //        }
 //    }
 
-    @Test
+  //  @Test
     public void testDropdown() {
         driver.navigate().to("https://testingcup.pgs-soft.com/");
         driver.findElement(By.linkText("Zadanie 8")).click();
@@ -72,7 +74,19 @@ public class TestLogin {
         Assert.assertEquals("Discover", typyKarty.getFirstSelectedOption().getText());
     }
 
+@Test
+public void testLoginPage3() {
+    driver.navigate().to("https://testingcup.pgs-soft.com/");
+    //driver.findElement(By.linkText("Zadanie 8")).click();
 
+    HomePage homePage = new HomePage(driver);
+    homePage.navigateTo();
+    LoginPage loginPage = new LoginPage(driver);
+    loginPage.loginAs("tester", "123-xyz");
+
+    Assert.assertTrue(loginPage.isError());
+
+}
 
     @AfterClass
     public static void tearDown() {
